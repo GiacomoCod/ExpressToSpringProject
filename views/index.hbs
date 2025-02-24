@@ -1,4 +1,18 @@
-{{!-- views/index.hbs --}}
-{{> header}}
-<p>Dati ricevuti dal server:</p>
-<p>{{responseData}}</p>
+<h1>{{title}}</h1>
+
+{{#if citta}}
+    <p>La città di {{nome}} {{cognome}} è: <strong>{{citta}}</strong></p>
+{{else}}
+{{!-- Puoi mettere un messaggio qui se vuoi, o lasciare vuoto --}}
+{{/if}}
+
+
+<form action="/getCitta" method="get">
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome" required><br><br>
+
+    <label for="cognome">Cognome:</label>
+    <input type="text" id="cognome" name="cognome" required><br><br>
+
+    <button type="submit">Ottieni Città</button>
+</form>
