@@ -1,18 +1,27 @@
-<h1>{{title}}</h1>
+<div class="container mt-5">
 
-{{#if citta}}
-    <p>La città di {{nome}} {{cognome}} è: <strong>{{citta}}</strong></p>
-{{else}}
-{{!-- Puoi mettere un messaggio qui se vuoi, o lasciare vuoto --}}
-{{/if}}
+    <div class="p-5 mb-4 bg-body-tertiary rounded-3">
+        <div class="container-fluid py-5">
+            <h1 class="display-5 fw-bold">Benvenuto nel database di Film</h1>
+            <p class="col-md-8 fs-4">Usa il form sottostante per cercare un film.</p>
+        </div>
+    </div>
 
+    <section id="search-section" class="mb-4">
+        <h2 class="mb-3">Ricerca Film</h2>
+        <form id="movieForm" class="mb-3">
+            <div class="mb-3">
+                <label for="movieName" class="form-label">Nome del Film:</label>
+                <input type="text" id="movieName" name="movieName" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Cerca</button>
+        </form>
+    </section>
 
-<form action="/getCitta" method="get">
-    <label for="nome">Nome:</label>
-    <input type="text" id="nome" name="nome" required><br><br>
-
-    <label for="cognome">Cognome:</label>
-    <input type="text" id="cognome" name="cognome" required><br><br>
-
-    <button type="submit">Ottieni Città</button>
-</form>
+    <section id="results-section">
+        <h2>Risultati</h2>
+        <div id="movieInfo" class="row">
+            {{!-- I risultati verranno inseriti qui --}}
+        </div>
+    </section>
+</div>

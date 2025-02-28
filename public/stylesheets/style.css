@@ -1,8 +1,64 @@
+/* public/stylesheets/style.css */
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: sans-serif; /* Mantieni il font */
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa; /* Colore di sfondo Bootstrap (leggermente più chiaro) */
+  color: #343a40;      /* Colore del testo Bootstrap */
+
 }
 
-a {
-  color: #00B7FF;
+header {
+  background-color: #343a40; /* Un colore scuro per l'header */
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
 }
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 1rem;
+}
+nav a{
+  color: #fff;
+  text-decoration: none;
+}
+main {
+  padding: 2rem;
+}
+
+footer {
+  background-color: #343a40;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  /*  position: fixed; Rimuovi se non vuoi il footer fisso */
+  /*  bottom: 0; */
+  /*  width: 100%; */
+}
+
+.card {
+  transition: transform 0.2s ease-in-out; /* Aggiunge una transizione fluida */
+}
+
+.card:hover {
+  transform: scale(1.05); /* Ingrandisce leggermente la card al passaggio del mouse */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombra più pronunciata */
+  /* Altri stili che potresti voler aggiungere: */
+  /* border-color: #007bff;  Cambia il colore del bordo */
+  /* cursor: pointer;         Cambia il cursore in una "mano" */
+}
+
+
+/* Esempio di SOVRASCRITTURA di uno stile Bootstrap (se necessario) */
+/*
+.btn-primary {
+    background-color: #0056b3;  !important  Aggiungi !important se necessario per avere la precedenza
+    border-color: #0056b3;
+}
+*/
