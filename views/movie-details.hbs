@@ -1,0 +1,19 @@
+{{!-- views/movie-details.handlebars --}}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-4">
+            {{!-- Immagine del poster (con classe per lo stile) --}}
+            <img src="{{movie.poster}}" alt="Locandina di {{movie.name}}" class="img-fluid movie-detail-image">
+        </div>
+        <div class="col-md-8">
+            <h1>{{movie.name}}</h1>
+            <p><strong>Anno:</strong> {{movie.year}}</p>
+            <p><strong>Tagline:</strong> {{movie.tagline}}</p>
+            <p><strong>Descrizione:</strong> {{movie.description}}</p>
+            <p><strong>Durata:</strong> {{movie.minute}} minuti</p>
+            <p><strong>Valutazione:</strong> {{movie.rating}}</p>
+
+            <a href="/" class="btn btn-secondary mt-3">Torna alla Ricerca</a>
+        </div>
+    </div>
+</div>

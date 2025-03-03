@@ -1,16 +1,16 @@
 /* public/stylesheets/style.css */
 
 body {
-  font-family: sans-serif; /* Mantieni il font */
+  font-family: sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f8f9fa; /* Colore di sfondo Bootstrap (leggermente più chiaro) */
-  color: #343a40;      /* Colore del testo Bootstrap */
+  background-color: #f8f9fa;
+  color: #343a40;
 
 }
 
 header {
-  background-color: #343a40; /* Un colore scuro per l'header */
+  background-color: #343a40;
   color: #fff;
   padding: 1rem;
   text-align: center;
@@ -42,6 +42,25 @@ footer {
   /*  width: 100%; */
 }
 
+
+/* Stili per le miniature nella home page (IMPORTANTE) */
+.movie-card .card-img-top {
+  height: 200px;        /* Altezza fissa (o max-height) - REGOLA QUESTO VALORE */
+  object-fit: cover;   /* Ritaglia e mantiene le proporzioni - FONDAMENTALE */
+  width: 100%;         /* Assicurati che occupi tutta la larghezza disponibile */
+  /* border-bottom: 1px solid #ddd;  (opzionale) */
+}
+
+/* Stili per l'immagine a dimensione intera nella pagina dei dettagli */
+.movie-detail-image {
+  width: 100%;
+  max-width: 400px;  /* o la dimensione che preferisci */
+  height: auto;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+/* Stile per le card Bootstrap */
 .card {
   transition: transform 0.2s ease-in-out; /* Aggiunge una transizione fluida */
 }
@@ -53,12 +72,3 @@ footer {
   /* border-color: #007bff;  Cambia il colore del bordo */
   /* cursor: pointer;         Cambia il cursore in una "mano" */
 }
-
-
-/* Esempio di SOVRASCRITTURA di uno stile Bootstrap (se necessario) */
-/*
-.btn-primary {
-    background-color: #0056b3;  !important  Aggiungi !important se necessario per avere la precedenza
-    border-color: #0056b3;
-}
-*/
