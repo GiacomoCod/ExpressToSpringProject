@@ -11,21 +11,31 @@ var app = express();
 
 const {engine} = require('express-handlebars');
 
-// Configura Handlebars
-app.engine('hbs', engine({ extname: '.hbs', /* altre opzioni */ }));
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'views')); // Usa path.join per la portabili
-
-app.engine('hbs', engine({
-  extname: '.hbs',
-  defaultLayout: 'main', // Specifica il layout predefinito
-  // ... altre opzioni ...
-}));
-
 app.engine('hbs', engine({
   extname: '.hbs',
   defaultLayout: 'main',
-  partialsDir: path.join(__dirname, 'views/partials') // Specifica la cartella dei partials
+  partialsDir: path.join(__dirname, 'views/partials'), // Specifica la cartella dei partials
+  helpers: {  // Definisci gli helper qui
+    formatDate: function(date) { // Helper formatDate
+      if (!date) {
+        return '';  // Gestisci il caso in cui la data è null/undefined
+      }
+      try {
+        // Usa la libreria 'moment' (MOLTO più semplice di Intl.DateTimeFormat)
+        return new Intl.DateTimeFormat('it-IT', { //Formattazione data
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        }).format(new Date(date));
+
+      } catch (error) {
+        console.error("Errore nella formattazione della data:", error);
+        return date; // Restituisci la data non formattata in caso di errore
+      }
+    }
+  }
 }));
 
 app.use(logger('dev'));

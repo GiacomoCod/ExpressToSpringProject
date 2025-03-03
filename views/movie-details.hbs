@@ -2,7 +2,6 @@
 <div class="container mt-5">
     <div class="row">
         <div class="col-md-4">
-            {{!-- Immagine del poster (con classe per lo stile) --}}
             <img src="{{movie.poster}}" alt="Locandina di {{movie.name}}" class="img-fluid movie-detail-image">
         </div>
         <div class="col-md-8">
@@ -14,6 +13,38 @@
             <p><strong>Valutazione:</strong> {{movie.rating}}</p>
 
             <a href="/" class="btn btn-secondary mt-3">Torna alla Ricerca</a>
+        </div>
+    </div>
+
+    {{!-- Sezione Recensioni --}}
+    <div class="row mt-4">
+        <div class="col">
+            <h2>Recensioni da Rotten Tomatoes</h2>
+            {{#if reviews}} {{!-- Controlla se ci sono recensioni --}}
+                {{#each reviews}} {{!-- Itera sulle recensioni --}}
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">{{criticName}} ({{publisherName}}){{#if topCritic}} <strong>(Top Critic)</strong>{{/if}}</h5>
+                            <p class="card-subtitle mb-2 text-muted">
+                                {{!-- Scegli UNA delle due opzioni per il punteggio: --}}
+
+                                {{!-- Opzione 1: Usa reviewType (Fresh/Rotten) --}}
+                                Punteggio: {{reviewType}} - {{formatDate reviewDate}}
+
+                                {{!-- Opzione 2: Usa un campo reviewScore numerico (se esiste) --}}
+                                {{!-- Punteggio: {{reviewScore}} - {{formatDate reviewDate}} --}}
+
+                                {{!-- Opzione 4:  Punteggio Derivato da reviewType--}}
+                                {{!-- Punteggio: {{#if (eq reviewType "Fresh")}}1{{else}}0{{/if}} - {{formatDate reviewDate}} --}}
+                            </p>
+                            <p class="card-text">{{reviewContent}}</p>
+                            <p class="card-text"><a href="https://www.rottentomatoes.com/{{rottenTomatoesLink}}" target="_blank" rel="noopener noreferrer">Leggi la recensione completa</a></p>
+                        </div>
+                    </div>
+                {{/each}}
+            {{else}}
+                <p>Nessuna recensione disponibile per questo film.</p>
+            {{/if}}
         </div>
     </div>
 </div>
